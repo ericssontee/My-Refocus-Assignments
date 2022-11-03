@@ -1,0 +1,16 @@
+{
+  "name": "home-assignment.-unit-testing",
+  "version": "1.0.0",
+  "description": "Home Assignment Unit Testing",
+  "main": "bmi_calculator.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^29.2.2"
+  }
+}
