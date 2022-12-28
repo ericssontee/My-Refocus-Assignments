@@ -18,7 +18,24 @@ describe("Search function testing.",() =>{
   test("Search function must return an array with 'Decoder' keyword", () => {
     expect(testSearch('Decoder')).toEqual(expectedArray('Decoder:'));
   });
+
+  test("Search function must return an array with a special character", () => {
+    expect(testSearch(':')).toEqual(expectedArray(':'));
+  });
 })
+
+
+describe("Sort function testing.", () => {
+
+  test("Sort function must return in ascending order.", () => {
+    expect(sort("ascending")).toStrictEqual(newsList.sort());
+  });
+
+  test("Sort function must return in ascending order.", () => {
+    expect(sort("descending")).toStrictEqual(newsList.sort((a, b) => b.localeCompare(a, 'en', {sensitivity: 'base'})));
+  });
+  
+});
 
 
 
