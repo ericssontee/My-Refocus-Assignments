@@ -1,0 +1,23 @@
+*{
+    color: aquamarine;
+}
+
+.blue {
+    color: blue;
+}
+
+.red{
+    color: red;
+}
+
+#box-1 .blue{
+    color: purple;
+}
+
+p {
+    color: gray;
+}
+
+.red p{
+    color: pink;
+}
