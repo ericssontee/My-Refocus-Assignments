@@ -1,0 +1,26 @@
+.sqaure1 {
+    display: flex;
+    justify-content: center;
+}
+
+.sqaure2 {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.sqaure3 {
+    display: flex;
+    justify-content: right;
+}
+
+
+.parent {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 200px;
+}
+
+
+
