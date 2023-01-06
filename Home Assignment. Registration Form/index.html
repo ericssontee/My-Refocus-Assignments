@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +8,78 @@
     <link rel="stylesheet" href="style.css">
     <title>Registration Form</title>
 </head>
+
 <body>
-    
+    <form name="registerForm" id="registerForm">
+        <h2>Vaccination Tracking Form</h2>
+        <label for="fname">First name:</label>
+        <input type="text" id="fname" name="fname">
+        <label for="mname">Middle name:</label>
+        <input type="text" id="mname" name="mname">
+        <label for="lname">Last name:</label>
+        <input type="text" id="lname" name="lname">
+        <label for="birthdate">Birthday:</label>
+        <input type="date" id="birthdate" name="birthdate">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email">
+        <label for="region">Region:</label>
+        <select id="region" name="region">
+            <option value="" selected disabled hidden>Select a Region</option>
+        </select>
+        <label for="province">Province:</label>
+        <input type="text" id="province" name="province">
+        <label for="barangay">Barangay:</label>
+        <input type="text" id="barangay" name="barangay">
+        <label for="Street">Street:</label>
+        <input type="text" id="street" name="street">
+        <input type="submit" value="Submit">
+
+    </form>
 </body>
+<script>
+
+    const form = document.forms.registerForm;
+    const fname = form.fname;
+    const mname = form.mname;
+    const lname = form.lname;
+    const birthdate = form.birthdate;
+    const email = form.email;
+    const region = form.region;
+    const province = form.province;
+    const barangay = form.barangay;
+    const street = form.street;
+
+
+// Region Dropdown
+    const arrRegion = [
+        'Region I — Ilocos Region',
+        'CAR — Cordillera Administrative Region',
+        'Region II — Cagayan Valley',
+        'Region III — Central Luzon',
+        'NCR — National Capital Region',
+        'Region IV‑A — CALABARZON',
+        'Region IV‑A — MIMAROPA',
+        'Region V — Bicol Region',
+        'Region VI — Western Visayas',
+        'Region VII — Central Visayas',
+        'Region VIII — Eastern Visayas',
+        'Region IX — Zamboanga Peninsula',
+        'Region X — Northern Mindanao',
+        'Region XI — Davao Region',
+        'Region XII — SOCCSKSARGEN',
+        'Region XIII — Caraga',
+        'BARMM — Bangsamoro Autonomous Region in Muslim Mindanao',
+    ]
+
+    let dropDownRegion = '';
+
+    arrRegion.forEach((val) => {
+        dropDownRegion += `<option value='${val}'>${val}</option>`
+    })
+
+    region.insertAdjacentHTML('beforeend', dropDownRegion);
+// End of Region Dropdown
+
+</script>
+
 </html>
