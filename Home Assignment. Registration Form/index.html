@@ -32,6 +32,36 @@
         <input type="text" id="barangay" name="barangay">
         <label for="Street">Street:</label>
         <input type="text" id="street" name="street">
+        <div id="radioGender">
+            <label for="gender">Gender:</label>
+        </div>
+        <div class="vaccine1">
+            <label for="vaccine1">Vaccination Brand(Dose 1):</label>
+            <select id="vaccine1" name="vaccine1">
+                <option value="" selected disabled hidden>Select a Vaccination Brand</option>
+            </select>
+            <label for="dateVaccine1">Date of Vaccination (Dose 1):</label>
+            <input type="date" id="dateVaccine1" name="dateVaccine1">
+            <label for="siteVaccine1">Vaccination (Dose 1) Site:</label>
+            <input type="text" id="siteVaccine1" name="siteVaccine1">
+        </div>
+        <div class="vaccine2">
+            <div id="radioVaccine2">
+                <label for="radioVaccine2">Did you already get your second vaccination?:</label>
+                <input type="radio" id="radioVaccine2Yes" name="radioVaccine2Yes" value="yes">
+                <label for="radioVaccine2Yes">Yes</label>
+                <input type="radio" id="radioVaccine2No" name="radioVaccine2No" value="no">
+                <label for="radioVaccine2No">No</label>
+            </div>
+            <label for="vaccine2">Vaccination Brand(Dose 2):</label>
+            <select id="vaccine2" name="vaccine2">
+                <option value="" selected disabled hidden>Select a Vaccination Brand</option>
+            </select>
+            <label for="dateVaccine2">Date of Vaccination (Dose 2):</label>
+            <input type="date" id="dateVaccine2" name="dateVaccine2">
+            <label for="siteVaccine2">Vaccination (Dose 2) Site:</label>
+            <input type="text" id="siteVaccine2" name="siteVaccine2">
+        </div>
         <input type="submit" value="Submit">
 
     </form>
@@ -48,9 +78,14 @@
     const province = form.province;
     const barangay = form.barangay;
     const street = form.street;
+    const gender = document.getElementById('radioGender');
+    const dateVaccine1 = form.dateVaccine1
+    const vaccine1 = form.vaccine1
+    const dateVaccine2 = form.dateVaccine2
+    const vaccine2 = form.vaccine2
 
 
-// Region Dropdown
+    // Region Dropdown
     const arrRegion = [
         'Region I — Ilocos Region',
         'CAR — Cordillera Administrative Region',
@@ -75,10 +110,23 @@
 
     arrRegion.forEach((val) => {
         dropDownRegion += `<option value='${val}'>${val}</option>`
-    })
+    });
 
     region.insertAdjacentHTML('beforeend', dropDownRegion);
-// End of Region Dropdown
+    // End of Region Dropdown
+
+    // Gender Dropdown
+
+    const arrGender = ['Male', 'Female', 'Other']
+
+    let dropdownGender = ''
+
+    arrGender.forEach((val) => {
+        dropdownGender += `<input type="radio" id="${val}" name="gender" value="${val}">\n<label for="${val}">${val}</label>`
+    });
+
+    gender.insertAdjacentHTML('beforeend', dropdownGender);
+// End of Gender Dropdown
 
 </script>
 
