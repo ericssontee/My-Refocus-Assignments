@@ -79,10 +79,12 @@
     const barangay = form.barangay;
     const street = form.street;
     const gender = document.getElementById('radioGender');
-    const dateVaccine1 = form.dateVaccine1
     const vaccine1 = form.vaccine1
-    const dateVaccine2 = form.dateVaccine2
+    const dateVaccine1 = form.dateVaccine1
+    const siteVaccine1 = form.siteVaccine1
     const vaccine2 = form.vaccine2
+    const dateVaccine2 = form.dateVaccine2
+    const siteVaccine2 = form.siteVaccine2
 
 
     // Region Dropdown
@@ -126,7 +128,31 @@
     });
 
     gender.insertAdjacentHTML('beforeend', dropdownGender);
-// End of Gender Dropdown
+    // End of Gender Dropdown
+
+    // Vaccine Dropdown
+    const arrVaccine = [
+        'Pfizer-BioNTech',
+        'AstraZeneca',
+        'Coronavac',
+        'Sputnik V',
+        'Janssen',
+        'Covaxin',
+        'Moderna',
+        'Sinopharm',
+        'Covovax',
+
+    ]
+
+    let dropDownVaccine = '';
+
+    arrVaccine.forEach((val) => {
+        dropDownVaccine += `<option value='${val}'>${val}</option>`
+    });
+
+    vaccine1.insertAdjacentHTML('beforeend', dropDownVaccine);
+    vaccine2.insertAdjacentHTML('beforeend', dropDownVaccine);
+    // End of Vaccine Dropdown
 
 </script>
 
