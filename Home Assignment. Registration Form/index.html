@@ -14,55 +14,71 @@
         <h2>Vaccination Tracking Form</h2>
         <div class="form-fname">
             <div id="error-fname"></div>
-            <label for="fname">First name:</label>
+            <label for="fname">First name:<label for="fname" class="required">*</label></label>
             <input type="text" id="fname" name="fname">
         </div>
-        <label for="mname">Middle name:</label>
-        <input type="text" id="mname" name="mname">
-        <label for="lname">Last name:</label>
-        <input type="text" id="lname" name="lname">
-        <label for="birthdate">Birthday:</label>
-        <input type="date" id="birthdate" name="birthdate">
-        <label for="email">Email:</label>
-        <input type="text" id="email" name="email">
-        <label for="region">Region:</label>
-        <select id="region" name="region">
-            <option value="" selected disabled hidden>Select a Region</option>
-        </select>
-        <label for="province">Province:</label>
-        <input type="text" id="province" name="province">
-        <label for="barangay">Barangay:</label>
-        <input type="text" id="barangay" name="barangay">
-        <label for="Street">Street:</label>
-        <input type="text" id="street" name="street">
+        <div class="mname">
+            <label for="mname">Middle name:</label>
+            <input type="text" id="mname" name="mname">
+        </div>
+        <div class="lname">
+            <label for="lname">Last name:<label for="lname" class="required">*</label></label>
+            <input type="text" id="lname" name="lname">
+        </div>
+        <div class="birthdate">
+            <label for="birthdate">Birthday:<label for="lname" class="required">*</label></label>
+            <input type="date" id="birthdate" name="birthdate">
+        </div>
+        <div class="email">
+            <label for="email">Email:<label for="lname" class="required">*</label></label>
+            <input type="text" id="email" name="email">
+        </div>
+        <div class="region">
+            <label for="region">Region:<label for="lname" class="required">*</label></label>
+            <select id="region" name="region">
+                <option value="" selected disabled hidden>Select a Region</option>
+            </select>
+        </div>
+        <div class="province">
+            <label for="province">Province:<label for="lname" class="required">*</label></label>
+            <input type="text" id="province" name="province">
+        </div>
+        <div class="barangay">
+            <label for="barangay">Barangay:<label for="lname" class="required">*</label></label>
+            <input type="text" id="barangay" name="barangay">
+        </div>
+        <div class="street">
+            <label for="Street">Street:<label for="lname" class="required">*</label></label>
+            <input type="text" id="street" name="street">
+        </div>
         <div id="radioGender">
-            <label for="gender">Gender:</label>
+            <label for="gender">Gender:<label for="lname" class="required">*</label></label>
         </div>
         <div class="vaccine1">
-            <label for="vaccine1">Vaccination Brand(Dose 1):</label>
+            <label for="vaccine1">Vaccination Brand(Dose 1):<label for="lname" class="required">*</label></label>
             <select id="vaccine1" name="vaccine1">
                 <option value="" selected disabled hidden>Select a Vaccination Brand</option>
             </select>
-            <label for="dateVaccine1">Date of Vaccination (Dose 1):</label>
+            <label for="dateVaccine1">Date of Vaccination (Dose 1):<label for="lname" class="required">*</label></label>
             <input type="date" id="dateVaccine1" name="dateVaccine1">
-            <label for="siteVaccine1">Vaccination (Dose 1) Site:</label>
+            <label for="siteVaccine1">Vaccination (Dose 1) Site:<label for="lname" class="required">*</label></label>
             <input type="text" id="siteVaccine1" name="siteVaccine1">
         </div>
         <div class="vaccine2">
             <div id="radioVaccine2">
-                <label for="radioVaccine2">Did you already get your second vaccination?:</label>
+                <label for="radioVaccine2">Did you already get your second vaccination?:<label for="lname" class="required">*</label></label>
                 <input type="radio" id="radioVaccine2Yes" name="radioVaccine2Yes" value="yes">
                 <label for="radioVaccine2Yes">Yes</label>
                 <input type="radio" id="radioVaccine2No" name="radioVaccine2No" value="no">
                 <label for="radioVaccine2No">No</label>
             </div>
-            <label for="vaccine2">Vaccination Brand(Dose 2):</label>
+            <label for="vaccine2">Vaccination Brand(Dose 2):<label for="lname" class="required">*</label></label>
             <select id="vaccine2" name="vaccine2">
                 <option value="" selected disabled hidden>Select a Vaccination Brand</option>
             </select>
-            <label for="dateVaccine2">Date of Vaccination (Dose 2):</label>
+            <label for="dateVaccine2">Date of Vaccination (Dose 2):<label for="lname" class="required">*</label></label>
             <input type="date" id="dateVaccine2" name="dateVaccine2">
-            <label for="siteVaccine2">Vaccination (Dose 2) Site:</label>
+            <label for="siteVaccine2">Vaccination (Dose 2) Site:<label for="lname" class="required">*</label></label>
             <input type="text" id="siteVaccine2" name="siteVaccine2">
         </div>
         <button type="submit" value="submit">Submit</button>
@@ -157,13 +173,13 @@
     vaccine2.insertAdjacentHTML('beforeend', dropDownVaccine);
     // End of Vaccine Dropdown
 
-    form.addEventListener('submit', function (event){
+    form.addEventListener('submit', function (event) {
         event.preventDefault();
         console.log('button clicked');
 
-        if(!fname.value) {
+        if (!fname.value) {
             fname.style.borderColor = 'red';
-            document.getElementById('error-'+ fname.name).innerText = 'Name is Required';
+            document.getElementById('error-' + fname.name).innerText = 'Name is Required';
         }
     });
 
