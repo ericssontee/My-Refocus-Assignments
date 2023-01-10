@@ -12,8 +12,11 @@
 <body>
     <form name="registerForm" id="registerForm">
         <h2>Vaccination Tracking Form</h2>
-        <label for="fname">First name:</label>
-        <input type="text" id="fname" name="fname">
+        <div class="form-fname">
+            <div id="error-fname"></div>
+            <label for="fname">First name:</label>
+            <input type="text" id="fname" name="fname">
+        </div>
         <label for="mname">Middle name:</label>
         <input type="text" id="mname" name="mname">
         <label for="lname">Last name:</label>
@@ -62,7 +65,7 @@
             <label for="siteVaccine2">Vaccination (Dose 2) Site:</label>
             <input type="text" id="siteVaccine2" name="siteVaccine2">
         </div>
-        <input type="submit" value="Submit">
+        <button type="submit" value="submit">Submit</button>
 
     </form>
 </body>
@@ -153,6 +156,16 @@
     vaccine1.insertAdjacentHTML('beforeend', dropDownVaccine);
     vaccine2.insertAdjacentHTML('beforeend', dropDownVaccine);
     // End of Vaccine Dropdown
+
+    form.addEventListener('submit', function (event){
+        event.preventDefault();
+        console.log('button clicked');
+
+        if(!fname.value) {
+            fname.style.borderColor = 'red';
+            document.getElementById('error-'+ fname.name).innerText = 'Name is Required';
+        }
+    });
 
 </script>
 
