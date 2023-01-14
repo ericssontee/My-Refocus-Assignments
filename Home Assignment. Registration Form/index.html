@@ -12,96 +12,135 @@
 <body>
     <form name="registerForm" id="registerForm">
         <h2>Vaccination Tracking Form</h2>
-        <div class="form-fname">
+        <div class="fname">
             <div id="error-fname"></div>
-            <label for="fname">First name:<label for="fname" class="required">*</label></label>
-            <input type="text" id="fname" name="fname">
+            <div class="form-control">
+                <label for="fname">First name:<label for="fname" class="required">*</label></label>
+                <input type="text" id="fname" name="fname">
+            </div>
         </div>
         <div class="mname">
-            <label for="mname">Middle name:</label>
-            <input type="text" id="mname" name="mname">
+            <div class="form-control">
+                <label for="mname">Middle name:</label>
+                <input type="text" id="mname" name="mname">
+            </div>
         </div>
         <div class="lname">
             <div id="error-lname"></div>
-            <label for="lname">Last name:<label for="lname" class="required">*</label></label>
-            <input type="text" id="lname" name="lname">
+            <div class="form-control">
+                <label for="lname">Last name:<label for="lname" class="required">*</label></label>
+                <input type="text" id="lname" name="lname">
+            </div>
         </div>
         <div class="birthdate">
             <div id="error-birthdate"></div>
-            <label for="birthdate">Birthday:<label for="birthdate" class="required">*</label></label>
-            <input type="date" id="birthdate" name="birthdate">
+            <div class="form-control">
+                <label for="birthdate">Birthday:<label for="birthdate" class="required">*</label></label>
+                <input type="date" id="birthdate" name="birthdate">
+            </div>
         </div>
         <div class="email">
             <div id="error-email"></div>
-            <label for="email">Email:<label for="email" class="required">*</label></label>
-            <input type="text" id="email" name="email">
+            <div class="form-control">
+                <label for="email">Email:<label for="email" class="required">*</label></label>
+                <input type="text" id="email" name="email">
+            </div>
         </div>
         <div class="region">
             <div id="error-region"></div>
-            <label for="region">Region:<label for="region" class="required">*</label></label>
-            <select id="region" name="region">
-                <option value="" selected disabled hidden>Select a Region</option>
-            </select>
+            <div class="form-control">
+                <label for="region">Region:<label for="region" class="required">*</label></label>
+                <select id="region" name="region">
+                    <option value="" selected disabled hidden>Select a Region</option>
+                </select>
+            </div>
         </div>
         <div class="province">
             <div id="error-province"></div>
-            <label for="province">Province:<label for="province" class="required">*</label></label>
-            <input type="text" id="province" name="province">
+            <div class="form-control">
+                <label for="province">Province:<label for="province" class="required">*</label></label>
+                <input type="text" id="province" name="province">
+            </div>
         </div>
         <div class="barangay">
             <div id="error-barangay"></div>
-            <label for="barangay">Barangay:<label for="barangay" class="required">*</label></label>
-            <input type="text" id="barangay" name="barangay">
+            <div class="form-control">
+                <label for="barangay">Barangay:<label for="barangay" class="required">*</label></label>
+                <input type="text" id="barangay" name="barangay">
+            </div>
         </div>
         <div class="street">
             <div id="error-street"></div>
-            <label for="Street">Street:<label for="street" class="required">*</label></label>
-            <input type="text" id="street" name="street">
+            <div class="form-control">
+                <label for="Street">Street:<label for="street" class="required">*</label></label>
+                <input type="text" id="street" name="street">
+            </div>
         </div>
         <div id="gender">
             <div id="error-gender"></div>
-            <label for="gender">Gender:<label for="gender" class="required">*</label></label>
+            <div class="form-control">
+                <label for="gender">Gender:<label for="gender" class="required">*</label></label>
+                <div id="genderOptions"></div>
+            </div>
         </div>
         <div class="vaccine1">
             <div id="error-vaccine1"></div>
-            <label for="vaccine1">Vaccination Brand(Dose 1):<label for="vaccine1" class="required">*</label></label>
-            <select id="vaccine1" name="vaccine1">
-                <option value="" selected disabled hidden>Select a Vaccination Brand</option>
-            </select>
+            <div class="form-control">
+                <label for="vaccine1">Vaccination Brand(Dose 1):<label for="vaccine1" class="required">*</label></label>
+                <select id="vaccine1" name="vaccine1">
+                    <option value="" selected disabled hidden>Select a Vaccination Brand</option>
+                </select>
+            </div>
             <div id="error-dateVaccine1"></div>
-            <label for="dateVaccine1">Date of Vaccination (Dose 1):<label for="dateVaccine1"
-                    class="required">*</label></label>
-            <input type="date" id="dateVaccine1" name="dateVaccine1">
+            <div class="form-control">
+                <label for="dateVaccine1">Date of Vaccination (Dose 1):<label for="dateVaccine1"
+                        class="required">*</label></label>
+                <input type="date" id="dateVaccine1" name="dateVaccine1">
+            </div>
             <div id="error-siteVaccine1"></div>
-            <label for="siteVaccine1">Vaccination (Dose 1) Site:<label for="siteVaccine1"
-                    class="required">*</label></label>
-            <input type="text" id="siteVaccine1" name="siteVaccine1">
+            <div class="form-control">
+                <label for="siteVaccine1">Vaccination (Dose 1) Site:<label for="siteVaccine1"
+                        class="required">*</label></label>
+                <input type="text" id="siteVaccine1" name="siteVaccine1">
+            </div>
         </div>
         <div class="vaccine2">
             <div id="radioVaccine2">
                 <div id="error-radioVaccine2"></div>
-                <label for="radioVaccine2">Did you already get your second vaccination?:<label for="radioVaccine2"
-                        class="required">*</label></label>
-                <input type="radio" id="radioVaccine2Yes" name="radioVaccine2Yes" value="yes">
-                <label for="radioVaccine2Yes">Yes</label>
-                <input type="radio" id="radioVaccine2No" name="radioVaccine2No" value="no">
-                <label for="radioVaccine2No">No</label>
+                <div class="form-control">
+                    <label for="radioVaccine2">Did you already get your second vaccination?:<label for="radioVaccine2"
+                            class="required">*</label></label>
+                    <div>
+                        <input type="radio" id="radioVaccine2Yes" name="radioVaccine2Yes" value="yes">
+                        <label for="radioVaccine2Yes">Yes</label>
+                        <input type="radio" id="radioVaccine2No" name="radioVaccine2No" value="no">
+                        <label for="radioVaccine2No">No</label>
+                    </div>
+                </div>
             </div>
             <div id="error-vaccine2"></div>
-            <label for="vaccine2">Vaccination Brand(Dose 2):<label for="vaccine2" class="required">*</label></label>
-            <select id="vaccine2" name="vaccine2">
-                <option value="" selected disabled hidden>Select a Vaccination Brand</option>
-            </select>
+            <div class="form-control">
+                <label for="vaccine2">Vaccination Brand(Dose 2):<label for="vaccine2" class="required">*</label></label>
+                <select id="vaccine2" name="vaccine2">
+                    <option value="" selected disabled hidden>Select a Vaccination Brand</option>
+                </select>
+            </div>
             <div id="error-dateVaccine2"></div>
-            <label for="dateVaccine2">Date of Vaccination (Dose 2):<label for="dateVaccine2"
-                    class="required">*</label></label>
-            <input type="date" id="dateVaccine2" name="dateVaccine2">
+            <div class="form-control">
+                <label for="dateVaccine2">Date of Vaccination (Dose 2):<label for="dateVaccine2"
+                        class="required">*</label></label>
+                <input type="date" id="dateVaccine2" name="dateVaccine2">
+            </div>
             <div id="error-siteVaccine2"></div>
-            <label for="siteVaccine2">Vaccination (Dose 2) Site:<label for="siteVaccine2"
-                    class="required">*</label></label>
-            <input type="text" id="siteVaccine2" name="siteVaccine2">
+            <div class="form-control">
+                <label for="siteVaccine2">Vaccination (Dose 2) Site:<label for="siteVaccine2"
+                        class="required">*</label></label>
+                <input type="text" id="siteVaccine2" name="siteVaccine2">
+            </div>
         </div>
-        <button type="submit" value="submit">Submit</button>
+        <div class="btnSubmit">
+            <button type="submit" value="submit">Submit</button>
+        </div>
 
     </form>
 </body>
@@ -118,6 +157,7 @@
     const barangay = form.barangay;
     const street = form.street;
     const gender = document.getElementById('gender')
+    const genderOptions = document.getElementById('genderOptions')
     const vaccine1 = form.vaccine1
     const dateVaccine1 = form.dateVaccine1
     const siteVaccine1 = form.siteVaccine1
@@ -166,7 +206,7 @@
         dropdownGender += `<input type="radio" id="${val}" name="gender" value="${val}">\n<label for="${val}">${val}</label>`
     });
 
-    gender.insertAdjacentHTML('beforeend', dropdownGender);
+    genderOptions.insertAdjacentHTML('beforeend', dropdownGender);
     // End of Gender Dropdown
 
     // Vaccine Dropdown
@@ -196,37 +236,48 @@
     form.addEventListener('submit', function (event) {
         event.preventDefault();
         console.log('button clicked');
+        let errorCount = 0;
 
         if (!fname.value) {
-            setError(fname, 'First Name is required.')
+            setError(fname, 'First Name is required.');
+            errorCount++;
+
         }
 
         if (!lname.value) {
-            setError(lname, 'Last Name is required.')
+            setError(lname, 'Last Name is required.');
+            errorCount++;
+
         }
 
         if (!birthdate.value) {
-            setError(birthdate, 'Birthday is required.')
+            setError(birthdate, 'Birthday is required.');
+            errorCount++;
         }
 
         if (!email.value) {
-            setError(email, 'Email is required.')
+            setError(email, 'Email is required.');
+            errorCount++;
         }
 
         if (!region.value) {
-            setError(region, 'Region is required.')
+            setError(region, 'Region is required.');
+            errorCount++;
         }
 
         if (!province.value) {
-            setError(province, 'Province is required.')
+            setError(province, 'Province is required.');
+            errorCount++;
         }
 
         if (!barangay.value) {
-            setError(barangay, 'Barangay is required.')
+            setError(barangay, 'Barangay is required.');
+            errorCount++;
         }
 
         if (!street.value) {
-            setError(street, 'Street is required.')
+            setError(street, 'Street is required.');
+            errorCount++;
         }
 
         if (!document.getElementById('Male').checked && !document.getElementById('Female').checked && !document.getElementById('Other').checked) {
@@ -234,11 +285,20 @@
                 document.getElementById(val).style.backgroundColor = 'red';
             });
             document.getElementById('error-gender').innerText = 'Gender is Required.';
+            errorCount++;
+        }
+
+        if (errorCount > 0) {
+            console.log(errorCount);
+            errorCount = 0;
+            return;
         }
 
 
 
     });
+
+
 
     const setError = (field, errorMsg) => {
         field.style.borderColor = 'red';

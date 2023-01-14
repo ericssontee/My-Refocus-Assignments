@@ -1,3 +1,32 @@
-.required {
+form {
+    display: grid;
+    justify-content: center;
+}
+
+.required, [id^="error-"] {
     color: red;
+}
+
+
+.btnSubmit {
+    display: flex;
+    justify-content: right;
+
+}
+
+.form-control {
+    display: flex;
+    justify-content: space-between;
+}
+
+[id^="error-"], .mname {
+    padding-top: 10px;
+}
+
+select {
+    width: 50%;
+}
+
+input[type=text], input[type=date] {
+    width: 50%;
 }
