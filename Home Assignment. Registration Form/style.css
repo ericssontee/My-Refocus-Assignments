@@ -11,7 +11,7 @@ form {
 .btnSubmit {
     display: flex;
     justify-content: right;
-
+    padding-top: 50px;
 }
 
 .form-control {
@@ -24,7 +24,7 @@ form {
 }
 
 select {
-    width: 50%;
+    width: 52%;
 }
 
 input[type=text], input[type=date] {

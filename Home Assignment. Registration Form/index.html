@@ -111,31 +111,34 @@
                     <label for="radioVaccine2">Did you already get your second vaccination?:<label for="radioVaccine2"
                             class="required">*</label></label>
                     <div>
-                        <input type="radio" id="radioVaccine2Yes" name="radioVaccine2Yes" value="yes">
+                        <input type="radio" id="radioVaccine2" name="radioVaccine2Form" value="yes">
                         <label for="radioVaccine2Yes">Yes</label>
-                        <input type="radio" id="radioVaccine2No" name="radioVaccine2No" value="no">
+                        <input type="radio" id="radioVaccine2" name="radioVaccine2Form" value="no">
                         <label for="radioVaccine2No">No</label>
                     </div>
                 </div>
             </div>
-            <div id="error-vaccine2"></div>
-            <div class="form-control">
-                <label for="vaccine2">Vaccination Brand(Dose 2):<label for="vaccine2" class="required">*</label></label>
-                <select id="vaccine2" name="vaccine2">
-                    <option value="" selected disabled hidden>Select a Vaccination Brand</option>
-                </select>
-            </div>
-            <div id="error-dateVaccine2"></div>
-            <div class="form-control">
-                <label for="dateVaccine2">Date of Vaccination (Dose 2):<label for="dateVaccine2"
-                        class="required">*</label></label>
-                <input type="date" id="dateVaccine2" name="dateVaccine2">
-            </div>
-            <div id="error-siteVaccine2"></div>
-            <div class="form-control">
-                <label for="siteVaccine2">Vaccination (Dose 2) Site:<label for="siteVaccine2"
-                        class="required">*</label></label>
-                <input type="text" id="siteVaccine2" name="siteVaccine2">
+            <div id="vaccine2Visibility">
+                <div id="error-vaccine2"></div>
+                <div class="form-control">
+                    <label for="vaccine2">Vaccination Brand(Dose 2):<label for="vaccine2"
+                            class="required">*</label></label>
+                    <select id="vaccine2" name="vaccine2">
+                        <option value="" selected disabled hidden>Select a Vaccination Brand</option>
+                    </select>
+                </div>
+                <div id="error-dateVaccine2"></div>
+                <div class="form-control">
+                    <label for="dateVaccine2">Date of Vaccination (Dose 2):<label for="dateVaccine2"
+                            class="required">*</label></label>
+                    <input type="date" id="dateVaccine2" name="dateVaccine2">
+                </div>
+                <div id="error-siteVaccine2"></div>
+                <div class="form-control">
+                    <label for="siteVaccine2">Vaccination (Dose 2) Site:<label for="siteVaccine2"
+                            class="required">*</label></label>
+                    <input type="text" id="siteVaccine2" name="siteVaccine2">
+                </div>
             </div>
         </div>
         <div class="btnSubmit">
@@ -161,9 +164,17 @@
     const vaccine1 = form.vaccine1
     const dateVaccine1 = form.dateVaccine1
     const siteVaccine1 = form.siteVaccine1
+    const radioVaccine2 = document.querySelectorAll('input[type=radio][name="radioVaccine2Form"]');
+
+    const vaccine2Form = document.getElementById('vaccine2Visibility');
     const vaccine2 = form.vaccine2
     const dateVaccine2 = form.dateVaccine2
     const siteVaccine2 = form.siteVaccine2
+    const errDiv = document.querySelectorAll(`[id^='error-']`);
+    const errInput = document.querySelectorAll(`input`);
+    const errSelect = document.querySelectorAll(`select`);
+
+    vaccine2Form.style.display = 'none';
 
 
     // Region Dropdown
@@ -233,10 +244,32 @@
     vaccine2.insertAdjacentHTML('beforeend', dropDownVaccine);
     // End of Vaccine Dropdown
 
+    // Show Vaccine (Dose 2) form
+    radioVaccine2.forEach(radio => radio.addEventListener('change', () => {
+        if (radio.value === 'yes') {
+            vaccine2Form.style.display = ''
+        } else {
+            vaccine2Form.style.display = 'none'
+        }
+
+    }));
+    // End of Show Vaccine (Dose 2) form
+
     form.addEventListener('submit', function (event) {
         event.preventDefault();
-        console.log('button clicked');
         let errorCount = 0;
+        const checkedVaccine2 = document.querySelectorAll('input[type=radio][name="radioVaccine2Form"]:checked');
+        let vaccine2Confirm;
+
+        resetElement();
+
+        const countingError = () => {
+            if (errorCount > 0) {
+                console.log(errorCount);
+                errorCount = 0;
+                return;
+            }
+        }
 
         if (!fname.value) {
             setError(fname, 'First Name is required.');
@@ -281,18 +314,59 @@
         }
 
         if (!document.getElementById('Male').checked && !document.getElementById('Female').checked && !document.getElementById('Other').checked) {
-            arrGender.forEach((val) => {
-                document.getElementById(val).style.backgroundColor = 'red';
-            });
             document.getElementById('error-gender').innerText = 'Gender is Required.';
             errorCount++;
         }
 
-        if (errorCount > 0) {
-            console.log(errorCount);
-            errorCount = 0;
-            return;
+        if (!vaccine1.value) {
+            setError(vaccine1, 'Vaccine Brand(Dose 1) is required.');
+            errorCount++;
         }
+
+        if (!dateVaccine1.value) {
+            setError(dateVaccine1, 'Date of Vaccination (Dose 1) is required.');
+            errorCount++;
+        }
+
+        if (!siteVaccine1.value) {
+            setError(siteVaccine1, 'Site of Vaccination (Dose 1) is required.');
+            errorCount++;
+        }
+
+        if (checkedVaccine2.length > 0) {
+            for (const value of checkedVaccine2.values()) {
+                if (value.value === 'yes') {
+
+                    vaccine2Confirm = value.value;
+
+                    if (!vaccine2.value) {
+                        setError(vaccine2, 'Vaccine Brand(Dose 2) is required.');
+                        errorCount++;
+                    }
+
+                    if (!dateVaccine2.value) {
+                        setError(dateVaccine2, 'Date of Vaccination (Dose 2) is required.');
+                        errorCount++;
+                    }
+
+                    if (!siteVaccine2.value) {
+                        setError(siteVaccine2, 'Site of Vaccination (Dose 2) is required.');
+                        errorCount++;
+                    }
+                } else {
+                    vaccine2Confirm = value.value;
+                    console.log(vaccine2Confirm);
+                }
+            }
+
+
+        } else {
+            document.getElementById('error-radioVaccine2').innerText = 'Second vaccination confirmation is Required.';
+            errorCount++;
+        }
+
+
+        countingError();
 
 
 
@@ -304,6 +378,23 @@
         field.style.borderColor = 'red';
         document.getElementById('error-' + field.name).innerText = errorMsg;
     }
+
+    const resetElement = () => {
+
+        errDiv.forEach((x) => {
+            x.innerText = ''
+        });
+
+        errInput.forEach((x) => {
+            x.style.borderColor = 'black';
+        });
+
+        errSelect.forEach((x) => {
+            x.style.borderColor = 'black';
+        });
+
+    }
+
 
 </script>
 
