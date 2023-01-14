@@ -142,13 +142,42 @@
             </div>
         </div>
         <div class="btnSubmit">
-            <button type="submit" value="submit">Submit</button>
+            <button type="submit" id="btnSubmit" value="submit">Submit</button>
         </div>
 
     </form>
+
+    <form name="completedForm" id="completedForm">
+        <div class="fname registeredForm">
+            <label for="comfname">First Name: </label>
+            <p class="comfname" id="comfname"></p>
+        </div>
+        <div class="mname registeredForm">
+            <label for="commname">Middle Name: </label>
+            <p class="commname" id="commname"></p>
+        </div>
+        <div class="lname registeredForm">
+            <label for="comlname">Last Name: </label>
+            <p class="comlname" id="comlname"></p>
+        </div>
+        <div class="birthday registeredForm">
+            <label for="comBirthday">Birthday: </label>
+            <p class="comBirthday" id="comBirthday"></p>
+        </div>
+        <div class="email registeredForm">
+            <label for="comEmail">Email: </label>
+            <p class="comEmail" id="comEmail"></p>
+        </div>
+        <div class="region registeredForm">
+            <label for="comRegion">Region: </label>
+            <p class="comRegion" id="comRegion"></p>
+        </div>
+    </form>
+
+
 </body>
 <script>
-
+    // Elements on Register Form
     const form = document.forms.registerForm;
     const fname = form.fname;
     const mname = form.mname;
@@ -175,7 +204,17 @@
     const errSelect = document.querySelectorAll(`select`);
 
     vaccine2Form.style.display = 'none';
+    //End of Elements on Register Form
 
+    const completeForm = document.forms.completedForm;
+    const completeFname = document.getElementById('comfname')
+    const completeMname = document.getElementById('commname')
+    const completeLname = document.getElementById('comlname')
+    const completeBirthdate = document.getElementById('comBirthday')
+    const completeEmail = document.getElementById('comEmail')
+    const completeRegion = document.getElementById('comRegion')
+
+    completeForm.style.display = 'none'
 
     // Region Dropdown
     const arrRegion = [
@@ -262,14 +301,6 @@
         let vaccine2Confirm;
 
         resetElement();
-
-        const countingError = () => {
-            if (errorCount > 0) {
-                console.log(errorCount);
-                errorCount = 0;
-                return;
-            }
-        }
 
         if (!fname.value) {
             setError(fname, 'First Name is required.');
@@ -365,8 +396,20 @@
             errorCount++;
         }
 
+        if (errorCount > 0) {
+            console.log(errorCount);
+            return;
+        } else {
+            completeForm.style.display = ''
+            completeFname.innerText = fname.value;
+            !mname.value ? completeMname.innerText = '' : completeMname.innerText = mname.value;
+            completeLname.innerText = lname.value;
+            completeBirthdate.innerText = birthdate.value;
+            completeEmail.innerText = email.value;
+            completeRegion.innerText = region.value;
+        }
 
-        countingError();
+
 
 
 
