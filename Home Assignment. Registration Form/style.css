@@ -1,17 +1,51 @@
+body {
+    display: flex;
+    background-color: rgb(124, 192, 255);
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+}
+
 form {
     display: grid;
     justify-content: center;
+    background-color: white;
+    width: 500px;
+    
+}
+
+#completedForm {
+    margin-top: 100px;
+    justify-content: left;
+}
+
+.registeredForm {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-left: 10px;
+    margin-bottom: 0px;
 }
 
 .required, [id^="error-"] {
     color: red;
 }
 
+label[for^="com"] {
+    margin-right: 5px;
+}
 
 .btnSubmit {
     display: flex;
     justify-content: right;
     padding-top: 50px;
+    padding-bottom: 10px;
+}
+
+#btnSubmit {
+    border-radius: 5px;
+    width: 100px;
 }
 
 .form-control {
@@ -19,7 +53,7 @@ form {
     justify-content: space-between;
 }
 
-[id^="error-"], .mname {
+[id^="error-"], #registerForm .mname {
     padding-top: 10px;
 }
 
