@@ -172,6 +172,55 @@
             <label for="comRegion">Region: </label>
             <p class="comRegion" id="comRegion"></p>
         </div>
+        <div class="province registeredForm">
+            <label for="comProvince">Province: </label>
+            <p class="comProvince" id="comProvince"></p>
+        </div>
+        <div class="barangay registeredForm">
+            <label for="comBarangay">Barangay: </label>
+            <p class="comBarangay" id="comBarangay"></p>
+        </div>
+        <div class="Street registeredForm">
+            <label for="comStreet">Street: </label>
+            <p class="comStreet" id="comStreet"></p>
+        </div>
+        <div class="gender registeredForm">
+            <label for="comGender">Gender: </label>
+            <p class="comGender" id="comGender"></p>
+        </div>
+        <div class="vaccine1">
+            <div class="Vaccine1Brand registeredForm">
+                <label for="comVaccine1Brand">Vaccination Brand(Dose 1):</label>
+                <p class="comVaccine1Brand" id="comVaccine1Brand"></p>
+            </div>
+            <div class="vaccine1Date registeredForm">
+                <label for="comVaccine1Date">Date of Vaccination (Dose 1):</label>
+                <p class="comVaccine1Date" id="comVaccine1Date"></p>
+            </div>
+            <div class="vaccine1Site registeredForm">
+                <label for="comVaccine1Site">Vaccination (Dose 1) Site:</label>
+                <p class="comVaccine1Site" id="comVaccine1Site"></p>
+            </div>
+        </div>
+        <div class="registeredForm" id="confirmCompleteVaccine2">
+            <label for="confirmVaccine2">Got your second vaccination?:</label>
+            <p class="confirmVaccine2" id="confirmVaccine2"></p>
+        </div>
+        <div id="comVaccine2">
+            <div class="vaccine2Brand registeredForm">
+                <label for="comVaccine2Brand">Vaccination Brand(Dose 2):</label>
+                <p class="comVaccine2Brand" id="comVaccine2Brand"></p>
+            </div>
+            <div class="vaccine2Date registeredForm">
+                <label for="comVaccine2Date">Date of Vaccination (Dose 2):</label>
+                <p class="comVaccine2Date" id="comVaccine2Date"></p>
+            </div>
+            <div class="vaccine2Site registeredForm">
+                <label for="comVaccine2Site">Vaccination (Dose 2) Site:</label>
+                <p class="comVaccine2Site" id="comVaccine2Site"></p>
+            </div>
+        </div>
+
     </form>
 
 
@@ -207,12 +256,25 @@
     //End of Elements on Register Form
 
     const completeForm = document.forms.completedForm;
-    const completeFname = document.getElementById('comfname')
-    const completeMname = document.getElementById('commname')
-    const completeLname = document.getElementById('comlname')
-    const completeBirthdate = document.getElementById('comBirthday')
-    const completeEmail = document.getElementById('comEmail')
-    const completeRegion = document.getElementById('comRegion')
+    const completeFname = document.getElementById('comfname');
+    const completeMname = document.getElementById('commname');
+    const completeLname = document.getElementById('comlname');
+    const completeBirthdate = document.getElementById('comBirthday');
+    const completeEmail = document.getElementById('comEmail');
+    const completeRegion = document.getElementById('comRegion');
+    const completeProvince = document.getElementById('comProvince');
+    const completeBarangay = document.getElementById('comBarangay');
+    const completeStreet = document.getElementById('comStreet');
+    const completeGender = document.getElementById('comGender');
+    const completeVaccine1Brand = document.getElementById('comVaccine1Brand');
+    const completeVaccine1Date = document.getElementById('comVaccine1Date');
+    const completeVaccine1Site = document.getElementById('comVaccine1Site');
+    const completeConfirmVaccine2 = document.getElementById('confirmCompleteVaccine2');
+    const completeAnsConfirmVaccine2 = document.getElementById('confirmVaccine2');
+    const completeVaccine2 = document.getElementById('comVaccine2');
+    const completeVaccine2Brand = document.getElementById('comVaccine2Brand');
+    const completeVaccine2Date = document.getElementById('comVaccine2Date');
+    const completeVaccine2Site = document.getElementById('comVaccine2Site');
 
     completeForm.style.display = 'none'
 
@@ -253,7 +315,7 @@
     let dropdownGender = ''
 
     arrGender.forEach((val) => {
-        dropdownGender += `<input type="radio" id="${val}" name="gender" value="${val}">\n<label for="${val}">${val}</label>`
+        dropdownGender += `<input type="radio" id="genderRadio" name="gender" value="${val}">\n<label for="${val}">${val}</label>`
     });
 
     genderOptions.insertAdjacentHTML('beforeend', dropdownGender);
@@ -297,9 +359,10 @@
     form.addEventListener('submit', function (event) {
         event.preventDefault();
         let errorCount = 0;
+        const radioGender = document.querySelectorAll('input[type=radio][name="gender"]:checked');
         const checkedVaccine2 = document.querySelectorAll('input[type=radio][name="radioVaccine2Form"]:checked');
+        let gender
         let vaccine2Confirm;
-
         resetElement();
 
         if (!fname.value) {
@@ -344,11 +407,25 @@
             errorCount++;
         }
 
-        if (!document.getElementById('Male').checked && !document.getElementById('Female').checked && !document.getElementById('Other').checked) {
+        if (radioGender.length < 1) {
             document.getElementById('error-gender').innerText = 'Gender is Required.';
             errorCount++;
+        } else {
+            for (const value of radioGender.values()) {
+                switch (value.value) {
+                    case 'Male':
+                        gender = value.value;
+                        break;
+                    case 'Female':
+                        gender = value.value;
+                        break;
+                    case 'Other':
+                        gender = value.value;
+                        break;
+                }
+            }
         }
-
+        
         if (!vaccine1.value) {
             setError(vaccine1, 'Vaccine Brand(Dose 1) is required.');
             errorCount++;
@@ -386,10 +463,9 @@
                     }
                 } else {
                     vaccine2Confirm = value.value;
-                    console.log(vaccine2Confirm);
+                    // console.log(vaccine2Confirm);
                 }
             }
-
 
         } else {
             document.getElementById('error-radioVaccine2').innerText = 'Second vaccination confirmation is Required.';
@@ -397,7 +473,7 @@
         }
 
         if (errorCount > 0) {
-            console.log(errorCount);
+            console.log(errorCount + ' Required items are not answered.');
             return;
         } else {
             completeForm.style.display = ''
@@ -407,10 +483,29 @@
             completeBirthdate.innerText = birthdate.value;
             completeEmail.innerText = email.value;
             completeRegion.innerText = region.value;
+            completeProvince.innerText = province.value;
+            completeBarangay.innerText = barangay.value;
+            completeStreet.innerText = street.value;
+            completeGender.innerText = gender;
+            completeVaccine1Brand.innerText = vaccine1.value;
+            completeVaccine1Date.innerText = dateVaccine1.value;
+            completeVaccine1Site.innerText = siteVaccine1.value;
+
+            console.log(vaccine2Confirm);
+            
+            if (vaccine2Confirm === 'yes') {
+                completeConfirmVaccine2.style.display = 'none';
+                completeVaccine2.style.display = ''
+                completeVaccine2Brand.innerText = vaccine2.value;
+                completeVaccine2Date.innerText = dateVaccine2.value;
+                completeVaccine2Site.innerText = siteVaccine2.value;
+            } else {
+                completeConfirmVaccine2.style.display = '';
+                completeVaccine2.style.display = 'none'
+                completeAnsConfirmVaccine2.innerText = ' No';
+            }
+
         }
-
-
-
 
 
     });
