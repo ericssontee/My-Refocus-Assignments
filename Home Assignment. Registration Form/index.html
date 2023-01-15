@@ -111,10 +111,8 @@
                     <label for="radioVaccine2">Did you already get your second vaccination?:<label for="radioVaccine2"
                             class="required">*</label></label>
                     <div>
-                        <input type="radio" id="radioVaccine2" name="radioVaccine2Form" value="yes">
-                        <label for="radioVaccine2Yes">Yes</label>
-                        <input type="radio" id="radioVaccine2" name="radioVaccine2Form" value="no">
-                        <label for="radioVaccine2No">No</label>
+                        <label><input type="radio" id="radioVaccine2" name="radioVaccine2Form" value="yes">Yes</label>
+                        <label><input type="radio" id="radioVaccine2" name="radioVaccine2Form" value="no">No</label>
                     </div>
                 </div>
             </div>
@@ -203,7 +201,7 @@
             </div>
         </div>
         <div class="registeredForm" id="confirmCompleteVaccine2">
-            <label for="confirmVaccine2">Got your second vaccination?:</label>
+            <label for="comConfirmVaccine2">Got your second vaccination?:</label>
             <p class="confirmVaccine2" id="confirmVaccine2"></p>
         </div>
         <div id="comVaccine2">
@@ -315,7 +313,7 @@
     let dropdownGender = ''
 
     arrGender.forEach((val) => {
-        dropdownGender += `<input type="radio" id="genderRadio" name="gender" value="${val}">\n<label for="${val}">${val}</label>`
+        dropdownGender += `<label><input type="radio" id="genderRadio" name="gender" value="${val}">${val}</label>`
     });
 
     genderOptions.insertAdjacentHTML('beforeend', dropdownGender);
