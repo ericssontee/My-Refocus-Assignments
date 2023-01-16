@@ -39,7 +39,7 @@ label[for^="com"] {
 .btnSubmit {
     display: flex;
     justify-content: right;
-    padding-top: 50px;
+    padding-top: 25px;
     padding-bottom: 10px;
 }
 
