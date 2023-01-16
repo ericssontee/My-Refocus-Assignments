@@ -11,7 +11,9 @@
 
 <body>
     <form name="registerForm" id="registerForm">
-        <h2>Vaccination Tracking Form</h2>
+        <div class="h2-background">
+            <h2>Vaccination Tracking Form</h2>
+        </div>
         <div class="fname">
             <div id="error-fname"></div>
             <div class="form-control">
@@ -423,7 +425,7 @@
                 }
             }
         }
-        
+
         if (!vaccine1.value) {
             setError(vaccine1, 'Vaccine Brand(Dose 1) is required.');
             errorCount++;
@@ -490,7 +492,7 @@
             completeVaccine1Site.innerText = siteVaccine1.value;
 
             console.log(vaccine2Confirm);
-            
+
             if (vaccine2Confirm === 'yes') {
                 completeConfirmVaccine2.style.display = 'none';
                 completeVaccine2.style.display = ''
