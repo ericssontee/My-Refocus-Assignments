@@ -11,63 +11,222 @@
 
 <body>
     <form name="registerForm" id="registerForm">
-        <h2>Vaccination Tracking Form</h2>
-        <label for="fname">First name:</label>
-        <input type="text" id="fname" name="fname">
-        <label for="mname">Middle name:</label>
-        <input type="text" id="mname" name="mname">
-        <label for="lname">Last name:</label>
-        <input type="text" id="lname" name="lname">
-        <label for="birthdate">Birthday:</label>
-        <input type="date" id="birthdate" name="birthdate">
-        <label for="email">Email:</label>
-        <input type="text" id="email" name="email">
-        <label for="region">Region:</label>
-        <select id="region" name="region">
-            <option value="" selected disabled hidden>Select a Region</option>
-        </select>
-        <label for="province">Province:</label>
-        <input type="text" id="province" name="province">
-        <label for="barangay">Barangay:</label>
-        <input type="text" id="barangay" name="barangay">
-        <label for="Street">Street:</label>
-        <input type="text" id="street" name="street">
-        <div id="radioGender">
-            <label for="gender">Gender:</label>
+        <div class="h2-background">
+            <h2>Vaccination Tracking Form</h2>
+        </div>
+        <div class="fname">
+            <div id="error-fname"></div>
+            <div class="form-control">
+                <label for="fname">First name:<label for="fname" class="required">*</label></label>
+                <input type="text" id="fname" name="fname">
+            </div>
+        </div>
+        <div class="mname">
+            <div class="form-control">
+                <label for="mname">Middle name:</label>
+                <input type="text" id="mname" name="mname">
+            </div>
+        </div>
+        <div class="lname">
+            <div id="error-lname"></div>
+            <div class="form-control">
+                <label for="lname">Last name:<label for="lname" class="required">*</label></label>
+                <input type="text" id="lname" name="lname">
+            </div>
+        </div>
+        <div class="birthdate">
+            <div id="error-birthdate"></div>
+            <div class="form-control">
+                <label for="birthdate">Birthday:<label for="birthdate" class="required">*</label></label>
+                <input type="date" id="birthdate" name="birthdate">
+            </div>
+        </div>
+        <div class="email">
+            <div id="error-email"></div>
+            <div class="form-control">
+                <label for="email">Email:<label for="email" class="required">*</label></label>
+                <input type="text" id="email" name="email">
+            </div>
+        </div>
+        <div class="region">
+            <div id="error-region"></div>
+            <div class="form-control">
+                <label for="region">Region:<label for="region" class="required">*</label></label>
+                <select id="region" name="region">
+                    <option value="" selected disabled hidden>Select a Region</option>
+                </select>
+            </div>
+        </div>
+        <div class="province">
+            <div id="error-province"></div>
+            <div class="form-control">
+                <label for="province">Province:<label for="province" class="required">*</label></label>
+                <input type="text" id="province" name="province">
+            </div>
+        </div>
+        <div class="barangay">
+            <div id="error-barangay"></div>
+            <div class="form-control">
+                <label for="barangay">Barangay:<label for="barangay" class="required">*</label></label>
+                <input type="text" id="barangay" name="barangay">
+            </div>
+        </div>
+        <div class="street">
+            <div id="error-street"></div>
+            <div class="form-control">
+                <label for="Street">Street:<label for="street" class="required">*</label></label>
+                <input type="text" id="street" name="street">
+            </div>
+        </div>
+        <div id="gender">
+            <div id="error-gender"></div>
+            <div class="form-control">
+                <label for="gender">Gender:<label for="gender" class="required">*</label></label>
+                <div id="genderOptions"></div>
+            </div>
         </div>
         <div class="vaccine1">
-            <label for="vaccine1">Vaccination Brand(Dose 1):</label>
-            <select id="vaccine1" name="vaccine1">
-                <option value="" selected disabled hidden>Select a Vaccination Brand</option>
-            </select>
-            <label for="dateVaccine1">Date of Vaccination (Dose 1):</label>
-            <input type="date" id="dateVaccine1" name="dateVaccine1">
-            <label for="siteVaccine1">Vaccination (Dose 1) Site:</label>
-            <input type="text" id="siteVaccine1" name="siteVaccine1">
+            <div id="error-vaccine1"></div>
+            <div class="form-control">
+                <label for="vaccine1">Vaccination Brand(Dose 1):<label for="vaccine1" class="required">*</label></label>
+                <select id="vaccine1" name="vaccine1">
+                    <option value="" selected disabled hidden>Select a Vaccination Brand</option>
+                </select>
+            </div>
+            <div id="error-dateVaccine1"></div>
+            <div class="form-control">
+                <label for="dateVaccine1">Date of Vaccination (Dose 1):<label for="dateVaccine1"
+                        class="required">*</label></label>
+                <input type="date" id="dateVaccine1" name="dateVaccine1">
+            </div>
+            <div id="error-siteVaccine1"></div>
+            <div class="form-control">
+                <label for="siteVaccine1">Vaccination (Dose 1) Site:<label for="siteVaccine1"
+                        class="required">*</label></label>
+                <input type="text" id="siteVaccine1" name="siteVaccine1">
+            </div>
         </div>
         <div class="vaccine2">
             <div id="radioVaccine2">
-                <label for="radioVaccine2">Did you already get your second vaccination?:</label>
-                <input type="radio" id="radioVaccine2Yes" name="radioVaccine2Yes" value="yes">
-                <label for="radioVaccine2Yes">Yes</label>
-                <input type="radio" id="radioVaccine2No" name="radioVaccine2No" value="no">
-                <label for="radioVaccine2No">No</label>
+                <div id="error-radioVaccine2"></div>
+                <div class="form-control">
+                    <label for="radioVaccine2">Did you already get your second vaccination?:<label for="radioVaccine2"
+                            class="required">*</label></label>
+                    <div>
+                        <label><input type="radio" id="radioVaccine2" name="radioVaccine2Form" value="yes">Yes</label>
+                        <label><input type="radio" id="radioVaccine2" name="radioVaccine2Form" value="no">No</label>
+                    </div>
+                </div>
             </div>
-            <label for="vaccine2">Vaccination Brand(Dose 2):</label>
-            <select id="vaccine2" name="vaccine2">
-                <option value="" selected disabled hidden>Select a Vaccination Brand</option>
-            </select>
-            <label for="dateVaccine2">Date of Vaccination (Dose 2):</label>
-            <input type="date" id="dateVaccine2" name="dateVaccine2">
-            <label for="siteVaccine2">Vaccination (Dose 2) Site:</label>
-            <input type="text" id="siteVaccine2" name="siteVaccine2">
+            <div id="vaccine2Visibility">
+                <div id="error-vaccine2"></div>
+                <div class="form-control">
+                    <label for="vaccine2">Vaccination Brand(Dose 2):<label for="vaccine2"
+                            class="required">*</label></label>
+                    <select id="vaccine2" name="vaccine2">
+                        <option value="" selected disabled hidden>Select a Vaccination Brand</option>
+                    </select>
+                </div>
+                <div id="error-dateVaccine2"></div>
+                <div class="form-control">
+                    <label for="dateVaccine2">Date of Vaccination (Dose 2):<label for="dateVaccine2"
+                            class="required">*</label></label>
+                    <input type="date" id="dateVaccine2" name="dateVaccine2">
+                </div>
+                <div id="error-siteVaccine2"></div>
+                <div class="form-control">
+                    <label for="siteVaccine2">Vaccination (Dose 2) Site:<label for="siteVaccine2"
+                            class="required">*</label></label>
+                    <input type="text" id="siteVaccine2" name="siteVaccine2">
+                </div>
+            </div>
         </div>
-        <input type="submit" value="Submit">
+        <div class="btnSubmit">
+            <button type="submit" id="btnSubmit" value="submit">Submit</button>
+        </div>
 
     </form>
+
+    <form name="completedForm" id="completedForm">
+        <div class="fname registeredForm">
+            <label for="comfname">First Name: </label>
+            <p class="comfname" id="comfname"></p>
+        </div>
+        <div class="mname registeredForm">
+            <label for="commname">Middle Name: </label>
+            <p class="commname" id="commname"></p>
+        </div>
+        <div class="lname registeredForm">
+            <label for="comlname">Last Name: </label>
+            <p class="comlname" id="comlname"></p>
+        </div>
+        <div class="birthday registeredForm">
+            <label for="comBirthday">Birthday: </label>
+            <p class="comBirthday" id="comBirthday"></p>
+        </div>
+        <div class="email registeredForm">
+            <label for="comEmail">Email: </label>
+            <p class="comEmail" id="comEmail"></p>
+        </div>
+        <div class="region registeredForm">
+            <label for="comRegion">Region: </label>
+            <p class="comRegion" id="comRegion"></p>
+        </div>
+        <div class="province registeredForm">
+            <label for="comProvince">Province: </label>
+            <p class="comProvince" id="comProvince"></p>
+        </div>
+        <div class="barangay registeredForm">
+            <label for="comBarangay">Barangay: </label>
+            <p class="comBarangay" id="comBarangay"></p>
+        </div>
+        <div class="Street registeredForm">
+            <label for="comStreet">Street: </label>
+            <p class="comStreet" id="comStreet"></p>
+        </div>
+        <div class="gender registeredForm">
+            <label for="comGender">Gender: </label>
+            <p class="comGender" id="comGender"></p>
+        </div>
+        <div class="vaccine1">
+            <div class="Vaccine1Brand registeredForm">
+                <label for="comVaccine1Brand">Vaccination Brand(Dose 1):</label>
+                <p class="comVaccine1Brand" id="comVaccine1Brand"></p>
+            </div>
+            <div class="vaccine1Date registeredForm">
+                <label for="comVaccine1Date">Date of Vaccination (Dose 1):</label>
+                <p class="comVaccine1Date" id="comVaccine1Date"></p>
+            </div>
+            <div class="vaccine1Site registeredForm">
+                <label for="comVaccine1Site">Vaccination (Dose 1) Site:</label>
+                <p class="comVaccine1Site" id="comVaccine1Site"></p>
+            </div>
+        </div>
+        <div class="registeredForm" id="confirmCompleteVaccine2">
+            <label for="comConfirmVaccine2">Got your second vaccination?:</label>
+            <p class="confirmVaccine2" id="confirmVaccine2"></p>
+        </div>
+        <div id="comVaccine2">
+            <div class="vaccine2Brand registeredForm">
+                <label for="comVaccine2Brand">Vaccination Brand(Dose 2):</label>
+                <p class="comVaccine2Brand" id="comVaccine2Brand"></p>
+            </div>
+            <div class="vaccine2Date registeredForm">
+                <label for="comVaccine2Date">Date of Vaccination (Dose 2):</label>
+                <p class="comVaccine2Date" id="comVaccine2Date"></p>
+            </div>
+            <div class="vaccine2Site registeredForm">
+                <label for="comVaccine2Site">Vaccination (Dose 2) Site:</label>
+                <p class="comVaccine2Site" id="comVaccine2Site"></p>
+            </div>
+        </div>
+
+    </form>
+
+
 </body>
 <script>
-
+    // Elements on Register Form
     const form = document.forms.registerForm;
     const fname = form.fname;
     const mname = form.mname;
@@ -78,14 +237,46 @@
     const province = form.province;
     const barangay = form.barangay;
     const street = form.street;
-    const gender = document.getElementById('radioGender');
+    const gender = document.getElementById('gender')
+    const genderOptions = document.getElementById('genderOptions')
     const vaccine1 = form.vaccine1
     const dateVaccine1 = form.dateVaccine1
     const siteVaccine1 = form.siteVaccine1
+    const radioVaccine2 = document.querySelectorAll('input[type=radio][name="radioVaccine2Form"]');
+
+    const vaccine2Form = document.getElementById('vaccine2Visibility');
     const vaccine2 = form.vaccine2
     const dateVaccine2 = form.dateVaccine2
     const siteVaccine2 = form.siteVaccine2
+    const errDiv = document.querySelectorAll(`[id^='error-']`);
+    const errInput = document.querySelectorAll(`input`);
+    const errSelect = document.querySelectorAll(`select`);
 
+    vaccine2Form.style.display = 'none';
+    //End of Elements on Register Form
+
+    const completeForm = document.forms.completedForm;
+    const completeFname = document.getElementById('comfname');
+    const completeMname = document.getElementById('commname');
+    const completeLname = document.getElementById('comlname');
+    const completeBirthdate = document.getElementById('comBirthday');
+    const completeEmail = document.getElementById('comEmail');
+    const completeRegion = document.getElementById('comRegion');
+    const completeProvince = document.getElementById('comProvince');
+    const completeBarangay = document.getElementById('comBarangay');
+    const completeStreet = document.getElementById('comStreet');
+    const completeGender = document.getElementById('comGender');
+    const completeVaccine1Brand = document.getElementById('comVaccine1Brand');
+    const completeVaccine1Date = document.getElementById('comVaccine1Date');
+    const completeVaccine1Site = document.getElementById('comVaccine1Site');
+    const completeConfirmVaccine2 = document.getElementById('confirmCompleteVaccine2');
+    const completeAnsConfirmVaccine2 = document.getElementById('confirmVaccine2');
+    const completeVaccine2 = document.getElementById('comVaccine2');
+    const completeVaccine2Brand = document.getElementById('comVaccine2Brand');
+    const completeVaccine2Date = document.getElementById('comVaccine2Date');
+    const completeVaccine2Site = document.getElementById('comVaccine2Site');
+
+    completeForm.style.display = 'none'
 
     // Region Dropdown
     const arrRegion = [
@@ -124,10 +315,10 @@
     let dropdownGender = ''
 
     arrGender.forEach((val) => {
-        dropdownGender += `<input type="radio" id="${val}" name="gender" value="${val}">\n<label for="${val}">${val}</label>`
+        dropdownGender += `<label><input type="radio" id="genderRadio" name="gender" value="${val}">${val}</label>`
     });
 
-    gender.insertAdjacentHTML('beforeend', dropdownGender);
+    genderOptions.insertAdjacentHTML('beforeend', dropdownGender);
     // End of Gender Dropdown
 
     // Vaccine Dropdown
@@ -153,6 +344,195 @@
     vaccine1.insertAdjacentHTML('beforeend', dropDownVaccine);
     vaccine2.insertAdjacentHTML('beforeend', dropDownVaccine);
     // End of Vaccine Dropdown
+
+    // Show Vaccine (Dose 2) form
+    radioVaccine2.forEach(radio => radio.addEventListener('change', () => {
+        if (radio.value === 'yes') {
+            vaccine2Form.style.display = ''
+        } else {
+            vaccine2Form.style.display = 'none'
+        }
+
+    }));
+    // End of Show Vaccine (Dose 2) form
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        let errorCount = 0;
+        const radioGender = document.querySelectorAll('input[type=radio][name="gender"]:checked');
+        const checkedVaccine2 = document.querySelectorAll('input[type=radio][name="radioVaccine2Form"]:checked');
+        let gender
+        let vaccine2Confirm;
+        resetElement();
+
+        if (!fname.value) {
+            setError(fname, 'First Name is required.');
+            errorCount++;
+
+        }
+
+        if (!lname.value) {
+            setError(lname, 'Last Name is required.');
+            errorCount++;
+
+        }
+
+        if (!birthdate.value) {
+            setError(birthdate, 'Birthday is required.');
+            errorCount++;
+        }
+
+        if (!email.value) {
+            setError(email, 'Email is required.');
+            errorCount++;
+        }
+
+        if (!region.value) {
+            setError(region, 'Region is required.');
+            errorCount++;
+        }
+
+        if (!province.value) {
+            setError(province, 'Province is required.');
+            errorCount++;
+        }
+
+        if (!barangay.value) {
+            setError(barangay, 'Barangay is required.');
+            errorCount++;
+        }
+
+        if (!street.value) {
+            setError(street, 'Street is required.');
+            errorCount++;
+        }
+
+        if (radioGender.length < 1) {
+            document.getElementById('error-gender').innerText = 'Gender is Required.';
+            errorCount++;
+        } else {
+            for (const value of radioGender.values()) {
+                switch (value.value) {
+                    case 'Male':
+                        gender = value.value;
+                        break;
+                    case 'Female':
+                        gender = value.value;
+                        break;
+                    case 'Other':
+                        gender = value.value;
+                        break;
+                }
+            }
+        }
+
+        if (!vaccine1.value) {
+            setError(vaccine1, 'Vaccine Brand(Dose 1) is required.');
+            errorCount++;
+        }
+
+        if (!dateVaccine1.value) {
+            setError(dateVaccine1, 'Date of Vaccination (Dose 1) is required.');
+            errorCount++;
+        }
+
+        if (!siteVaccine1.value) {
+            setError(siteVaccine1, 'Site of Vaccination (Dose 1) is required.');
+            errorCount++;
+        }
+
+        if (checkedVaccine2.length > 0) {
+            for (const value of checkedVaccine2.values()) {
+                if (value.value === 'yes') {
+
+                    vaccine2Confirm = value.value;
+
+                    if (!vaccine2.value) {
+                        setError(vaccine2, 'Vaccine Brand(Dose 2) is required.');
+                        errorCount++;
+                    }
+
+                    if (!dateVaccine2.value) {
+                        setError(dateVaccine2, 'Date of Vaccination (Dose 2) is required.');
+                        errorCount++;
+                    }
+
+                    if (!siteVaccine2.value) {
+                        setError(siteVaccine2, 'Site of Vaccination (Dose 2) is required.');
+                        errorCount++;
+                    }
+                } else {
+                    vaccine2Confirm = value.value;
+                    // console.log(vaccine2Confirm);
+                }
+            }
+
+        } else {
+            document.getElementById('error-radioVaccine2').innerText = 'Second vaccination confirmation is Required.';
+            errorCount++;
+        }
+
+        if (errorCount > 0) {
+            console.log(errorCount + ' Required items are not answered.');
+            return;
+        } else {
+            completeForm.style.display = ''
+            completeFname.innerText = fname.value;
+            !mname.value ? completeMname.innerText = '' : completeMname.innerText = mname.value;
+            completeLname.innerText = lname.value;
+            completeBirthdate.innerText = birthdate.value;
+            completeEmail.innerText = email.value;
+            completeRegion.innerText = region.value;
+            completeProvince.innerText = province.value;
+            completeBarangay.innerText = barangay.value;
+            completeStreet.innerText = street.value;
+            completeGender.innerText = gender;
+            completeVaccine1Brand.innerText = vaccine1.value;
+            completeVaccine1Date.innerText = dateVaccine1.value;
+            completeVaccine1Site.innerText = siteVaccine1.value;
+
+            console.log(vaccine2Confirm);
+
+            if (vaccine2Confirm === 'yes') {
+                completeConfirmVaccine2.style.display = 'none';
+                completeVaccine2.style.display = ''
+                completeVaccine2Brand.innerText = vaccine2.value;
+                completeVaccine2Date.innerText = dateVaccine2.value;
+                completeVaccine2Site.innerText = siteVaccine2.value;
+            } else {
+                completeConfirmVaccine2.style.display = '';
+                completeVaccine2.style.display = 'none'
+                completeAnsConfirmVaccine2.innerText = ' No';
+            }
+
+        }
+
+
+    });
+
+
+
+    const setError = (field, errorMsg) => {
+        field.style.borderColor = 'red';
+        document.getElementById('error-' + field.name).innerText = errorMsg;
+    }
+
+    const resetElement = () => {
+
+        errDiv.forEach((x) => {
+            x.innerText = ''
+        });
+
+        errInput.forEach((x) => {
+            x.style.borderColor = 'black';
+        });
+
+        errSelect.forEach((x) => {
+            x.style.borderColor = 'black';
+        });
+
+    }
+
 
 </script>
 

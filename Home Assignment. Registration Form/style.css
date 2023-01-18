@@ -1,0 +1,95 @@
+:root {
+    --radius-size: 10px;
+}
+
+body {
+    display: flex;
+    background-image: url('asset/images/vaccine.jpeg');
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+}
+
+form {
+    display: grid;
+    justify-content: center;
+    background-color: white;
+    border-radius: var(--radius-size);
+    box-shadow: 5px 10px #616060;
+    
+}
+
+.h2-background {
+    background-color: #6acaf6;
+    border-top-left-radius: var(--radius-size);
+    border-top-right-radius: var(--radius-size);
+}
+
+h2 {
+    color: white;
+}
+
+#completedForm {
+    margin-top: 50px;
+    justify-content: left;
+}
+
+.registeredForm {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-left: 10px;
+    margin-bottom: 0px;
+}
+
+.required, [id^="error-"] {
+    color: red;
+}
+
+label[for^="com"] {
+    margin-right: 5px;
+}
+
+.btnSubmit {
+    display: flex;
+    justify-content: right;
+    padding: 26px 25px 15px 0px
+}
+
+#btnSubmit {
+    border-radius: 5px;
+    width: 100px;
+    height: 50px;
+    background-color: #6acaf6;
+    box-shadow: 3px 4px #616060;
+}
+
+.form-control, h2 {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 10px;
+}
+
+[id^="error-"] {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+#registerForm .mname {
+    padding-top: 10px;
+}
+
+select {
+    width: 51%;
+    border: 2px solid black;
+}
+
+input[type=text], input[type=date] {
+    width: 50%;
+    border-color: black;
+}
+
+#completedForm label{
+    font-weight: bold;
+}
