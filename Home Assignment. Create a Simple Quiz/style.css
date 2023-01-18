@@ -1,0 +1,38 @@
+body {
+    width: 500px;
+}
+
+[class^="q"] {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 20px;
+}
+
+#q1 {
+    margin-top: 5px;
+}
+
+#q1-answers {
+    border-color: black;
+}
+
+[id$="-answers"] {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 5px;
+}
+
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    margin-right: 35px;
+}
+
+.button {
+    margin: 0px 5px;
+}
