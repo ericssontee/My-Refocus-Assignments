@@ -5,90 +5,147 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css"
+        integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
     <title>Ericsson Tee</title>
 </head>
 
 <body>
-    <header>
-        <h1>Ericsson Tee</h1>
-    </header>
-    <section class="profilePic">
-        <figure>
-            <img src="./asset/image/profile.jpg">
-        </figure>
-    </section>
-    <section class="contact">
-        <div id="email">
-            <a href="mailto:ericssontee.eb@gmail.com" id="email">ericssontee.eb@gmail.com</a>
+    <div class="resume">
+        <div class="left">
+            <header>
+                <div class="profilePic margin-left top">
+                    <figure>
+                        <img src="./asset/image/profile.jpg">
+                    </figure>
+                </div>
+                <div class="name margin-left">
+                    <h2 class="heading">Ericsson Tee</h2>
+                </div>
+            </header>
+            <hr>
+            <section class="contact margin-left">
+                <div class="contacts" id="email">
+                    <div class="heading">
+                        <div class="bar"></div>
+                        <h4 class="title">Email:</h4>
+                    </div>
+                    <a href="mailto:ericssontee.eb@gmail.com" id="email">ericssontee.eb@gmail.com</a>
+                </div>
+                <div class="contacts" id="contactNumber">
+                    <div class="heading">
+                        <div class="bar"></div>
+                        <h4 class="title">Contact Number:</h4>
+                    </div>
+                    <a href="tel:+639976044081" id="phoneNumber">+639976044081</a>
+                </div>
+                <div class="contacts" id="address">
+                    <div class="heading">
+                        <div class="bar"></div>
+                        <h4 class="title">Address:</h4>
+                    </div>
+                    <address>
+                        4 June Street, Project 8, Quezon City, NCR, Philippines
+                    </address>
+                </div>
+            </section>
+            <hr>
         </div>
-        <div id="contactNumber">
-            <a href="tel:+639976044081" id="phoneNumber">+639976044081</a>
+        <div class="right">
+            <section class="workExperience .margin-left top">
+                <h3 class="heading">Work Experience:</h3>
+                <div class="office">
+                    <div class="acn">
+                        <h4 class="heading" id="acn">Accenture Inc.</h4>
+                        <div id="job">Software Engineer</div>
+                        <div id="roles">
+                            <div>Roles:</div>
+                            <ul>
+                                <li>
+                                    <div>App Support Engineer (2019-2022)</div>
+                                    <div class="course-skill">Skill Used: SQL, SSMS, Web App Troubleshooting</div>
+                                </li>
+                                <li>
+                                    <div>GCP Admin (2022 - Present)</div>
+                                    <div class="course-skill">Skill Used: GCP Server Administration</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <hr>
+            <section class="education .margin-left">
+                <h3 class="heading">Education:</h3>
+                <ul>
+                    <li>
+                        <div><i class="material-icons">school</i> De La Salle Araneta University</div>
+                        <div class="course-skill">Computer Engineering (2014-2019)</div>
+                    </li>
+                    <li>
+                        <div style="margin-left: 30px">Mapua Institute of Technology</div>
+                        <div class="course-skill">Computer Engineering (2013-2014)</div>
+                    </li>
+                </ul>
+            </section>
+            <hr>
+            <section class="spokenLanguages .margin-left">
+                <h3 class="heading">Spoken Languages:</h3>
+                <ul>
+                    <li><i class="flag flag-philippines"></i> Tagalog</li>
+                    <li><i class="flag flag-united-states"></i> English</li>
+                </ul>
+            </section>
+            <hr>
+            <section class="hobbies .margin-left">
+                <h3 class="heading">Hobbies:</h3>
+                <ul>
+                    <li><i class="material-icons">devices</i> Surf the Net</li>
+                    <li><i class="material-icons">movie</i> Watch Movies</li>
+                    <li><i class="material-icons">toys</i> Research about Cars especially JDM</li>
+                    <li><i class="material-icons">videogame_asset</i> Play Video Games</li>
+                    <li><i class="material-icons">fitness_center</i> Hit Gym</li>
+                    <li><i class="material-icons">library_music</i> Listen to Music</li>
+                </ul>
+            </section>
+            <hr>
+            <section class="reference .margin-left">
+                <h3 class="heading">Reference:</h3>
+            </section>
+            <hr>
+            <section class="certifications .margin-left">
+                <h3 class="heading">Certifications:</h3>
+            </section>
+            <hr>
+            <section class="socialMedia .margin-left">
+                <h3 class="heading">Social Media:</h3>
+                <ul id="socialMedia">
+                    <li>
+                        <div class="linkedin">
+                            <a href="https://www.linkedin.com/in/ericssontee" id="linkedin" target=”_blank”><i
+                                    class="fa fa-linkedin-square"></i> LinkedIn</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="github">
+                            <a href="https://github.com/ericssontee" id="github" target=”_blank”><i
+                                    class="fa fa-github-square"></i> Github</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="discord">
+                            <a href="https://discordapp.com/users/917783856176844880" id="discord" target=”_blank”><i
+                                    class="fa fa-discord" aria-hidden="true"></i> Discord</a>
+                        </div>
+                    </li>
+                </ul>
+            </section>
         </div>
-        <div id="address">4 June Street, Project 8, Quezon City, NCR, Philippines</div>
-    </section>
-    <section class="workExperience">
-        <h3>Work Experience:</h3>
-        <h4 id="office">Accenture Inc.</h4>
-        <div id="job">Software Engineer</div>
-        <div id="roles">
-            <div>Roles</div>
-            <ul>
-                <li>
-                    <div>App Support Engineer (2019-2022)</div>
-                    <div>Skill Used: SQL, Web App Troubleshooting</div>
-                </li>
-                <li>GCP Admin (2022 - Present)</li>
-                <div>Skill Used: GCP Server Administration</div>
-            </ul>
-        </div>
-    </section>
-    <section class="education">
-        <h3>Education:</h3>
-        <ul>
-            <li>
-                <div>De La Salle Araneta University</div>
-                <div>Computer Engineering (2014-2019)</div>
-            </li>
-            <li>
-                <div>Mapua Institute of Technology</div>
-                <div>Computer Engineering (2013-2014)</div>
-            </li>
-        </ul>
-    </section>
-    <section class="spokenLanguages">
-        <h3>Spoken Languages:</h3>
-        <ul>
-            <li>Tagalog</li>
-            <li>English</li>
-        </ul>
-    </section>
-    <section class="hobbies">
-        <h3>Hobbies:</h3>
-        <ul>
-            <li>Surf the Net</li>
-            <li>Watch Movies or Series</li>
-            <li>Research about Cars especially JDM</li>
-            <li>Play Video Games</li>
-            <li>Hit Gym</li>
-            <li>Listen to Music</li>
-        </ul>
-    </section>
-    <section class="reference">
-        <h3>Reference:</h3>
-    </section>
-    <section class="certifications">
-        <h3>Certifications:</h3>
-    </section>
-    <section class="socialMedia">
-        <h3>Social Media:</h3>
-        <div class="linkedin">
-            <a href="https://www.linkedin.com/in/ericssontee" id="linkedin" target=”_blank”>LinkedIn</a>
-        </div>
-        <div class="github">
-            <a href="https://github.com/ericssontee" id="github" target=”_blank”>GitHub</a>
-        </div>
-    </section>
+    </div>
 </body>
 
 </html>
