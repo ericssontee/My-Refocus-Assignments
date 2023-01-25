@@ -6,4 +6,10 @@ My hobbies are watching movies or series, hit gym, play video games, listen to m
 
 My main goal for this year is to become a software developer. 
 
-The main reason of aspiring it is because I want to help solving problems by building a software. 
+The main reason of aspiring it is because I want to help solving problems by building a software.
+
+
+
+Repo Updates:
+
+01-25-2023: Reorganize the assignments by language tackled.
