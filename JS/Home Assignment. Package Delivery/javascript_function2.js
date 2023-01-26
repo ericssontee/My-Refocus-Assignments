@@ -47,5 +47,5 @@ for (sample of [4800, 5212, 1000000]) {
 // Logs
 // #1 By only just following the instructions, humanDuration(5212) returns as The formatted duration of 5212 seconds is 1 Hour, 86 Minutes and 52 Seconds.
 // #2 This has been fixed by adding a condition for minutesObject.minutes where it will be subtracted by 60 when it's over or equals to 60.
-// #3 It still not fixed the issue as testing with higher test samples like 1 million seconds resulted as 277 Hours, 16606 Minutes and 40 Seconds instead of 277 Hours, 46 Minutes and 40 Seconds. Meaning it just fixed when minute value is under 60 mins.
+// #3 It still not fixed the issue as testing with higher test samples like 1 million seconds resulted as 277 Hours, 16606 Minutes and 40 Seconds instead of 277 Hours, 46 Minutes and 40 Seconds. Meaning it just fixed when minute value is under 120 mins.
 // #4 This has been fixed by adding a variable called minuteDiffMultiplier to determine on how many times the minutesObject will be subtracted by 60.
