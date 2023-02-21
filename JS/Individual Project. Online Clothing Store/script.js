@@ -23,3 +23,17 @@ const items = [
         stock_qty: 456
     }
 ]
+
+
+function addUsers (newFirstName, newLastName, newAge, dayBirth, monthBirth, yearBirth) {
+    userInformation.push({
+        firstName: newFirstName,
+        lastName: newLastName,
+        age: newAge,
+        birthday: `${monthBirth}.${dayBirth}.${yearBirth}`
+    }); 
+}
+
+// addUsers('Eric', 'Tee', 27, 11, 9, 1996);
+
+// console.log(userInformation);
