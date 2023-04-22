@@ -1,3 +1,4 @@
+// Variables
 let userLogin = {};
 let userCart = [];
 
@@ -33,8 +34,12 @@ const items = [
     category: "Trousers",
     price: 50,
     stock_qty: 200,
-  },
+  }
 ];
+// End of Variables
+
+
+// Functions
 
 function addUsers(newFirstName, newLastName, newAge, dayBirth, monthBirth, yearBirth) {
 
@@ -49,8 +54,6 @@ function addUsers(newFirstName, newLastName, newAge, dayBirth, monthBirth, yearB
       age: newAge,
       birthday: `${monthBirth}.${dayBirth}.${yearBirth}`,
     });
-
-    console.log(usersInformation[usersInformation.length - 1]);
   } catch (error) {
     `Error on inserting a user: ${error}`;
   }
@@ -78,8 +81,14 @@ function addOrUpdateItem(itemName, itemCategory, itemPrice, itemQty) {
     price: itemPrice,
     stock_qty: itemQty,
   };
-
-  const indexItem = items.findIndex( (item) => item.item_name === addItemObj.item_name && item.category === addItemObj.category );
+  let indexItem = 0;
+  // Find the item by item id 
+  try {
+    indexItem = items.findIndex( (item) => item.item_name === addItemObj.item_name && item.category === addItemObj.category );
+  } catch (error) {
+    console.log(error);
+    return;
+  }
 
   if (indexItem > 0) {
     if (addItemObj.stock_qty == null || addItemObj.price == null) {
@@ -92,14 +101,18 @@ function addOrUpdateItem(itemName, itemCategory, itemPrice, itemQty) {
     console.log( `Stock or Price of ${items[indexItem].item_name} has been updated`);
     console.log(items[indexItem]);
   } else {
-    const newID = items.length++
-    items.push(newID, addItemObj);
+
+    let newID = items.length;
+    newID++
+    addItemObj['itemID'] = newID;
+    
     if (addItemObj.stock_qty == null || addItemObj.price == null) {
       console.log( `No Stock or Price value has been entered for ${addItemObj.item_name}. Please enter with Complete details.` );
       return;
     }
+    console.log(addItemObj);
+    items.push(addItemObj);
     console.log(`Item ${items[items.length - 1].item_name} has been Added`);
-    // console.log(items[items.length - 1]);
   }
 }
 
@@ -108,7 +121,6 @@ function addToCartItem(itemID, itemCartQty) {
     let itemToAddIndex;
     try {
       itemToAddIndex = items.findIndex( item => item.itemID === itemID );
-      console.log(itemToAddIndex)
     } catch (error) {
       console.log(error);
     }
@@ -119,7 +131,23 @@ function addToCartItem(itemID, itemCartQty) {
     };
     const itemToAdd = items[itemToAddIndex]
     if (itemCartQty < itemToAdd.stock_qty) {
-      let newID = userCart.length++
+
+      // Check if there's a the same item already added to card.
+      try {
+        itemCartindex = userCart.findIndex( itemCart => itemCart.item.itemID === itemID );
+      } catch (error) {
+        console.log(error);
+      }
+
+      if ( itemCartindex >= 0) {
+        userCart[itemCartindex].qty += itemCartQty;
+        console.log(`Qty of Item ${userCart[itemCartindex].item.item_name} has been updated as ${userCart[itemCartindex].qty}`);
+        return;
+      }
+      
+      // When item is not still added on cart.
+      let newID = userCart.length;
+      newID++;
       userCart.push(
         {
           cartItemID: newID,
@@ -140,17 +168,20 @@ function addToCartItem(itemID, itemCartQty) {
 function confirmOrder ( isConfirmed, totalPaid ) {
 
   if (isConfirmed === 'Yes' || isConfirmed === 'yes') {
-    const totalPrice = 0.00;
-    for (const itemSold in userCart) {
+    let totalPrice = 0.00;
+    console.log(userCart)
+    userCart.forEach(function (itemSold){
       const item = itemSold.item;
       totalPrice += (item.price * itemSold.qty);
-    }
+      updateItemQtyAfterConfirm(item.itemID, itemSold.qty)
+    })
+    console.log(`Total Price is: $${totalPrice}`);
     if (totalPaid < totalPrice) {
       console.log("User paid with insufficient funds. Please add more.")
       return;
     }
     const change = totalPaid - totalPrice
-    showReceipt(totalPrice, totalPrice, change);
+    showReceipt(totalPrice, totalPaid, change);
     
   } else {
     console.log("Continue Buying :)");
@@ -161,35 +192,42 @@ function confirmOrder ( isConfirmed, totalPaid ) {
 function updateItemQtyAfterConfirm (itemID, confirmQty) {
   const itemToUpdateIndex = items.findIndex( (item) => item.itemID === itemID );
   const itemToUpdate = items[itemToUpdateIndex];
-  itemToUpdate.stock_qty - confirmQty;
+  itemToUpdate.stock_qty -= confirmQty;
 }
 
 function showReceipt ( totalPrice, totalPaid, change) {
   console.log("================================================");
-  console.log(`==         ${shopInformation.store}           ==\n`);
-  console.log(`==         ${shopInformation.location}        ==\n`);
+  console.log(`==                    ${shopInformation.store}                    ==\n`);
+  console.log(`==         ${shopInformation.location}         ==\n`);
   console.log("================================================");
   console.log("\n");
   console.log("Items:\n");
   console.log("================================================");
   console.log("\n");
-  const itemNo = 1;
-  for (const itemSold in userCart) {
-    const item = itemSold.item
+  let itemNo = 1;
+  userCart.forEach(function (itemSold){
+    const item = itemSold.item;
     console.log(`${itemNo}. ${item.item_name}  ${itemSold.qty}*$${item.price} \n`);
     itemNo++
-  }
+  })
+
   console.log("\n");
   console.log("================================================");
   console.log("\n");
   console.log(`Total Price: $${totalPrice}`);
   console.log(`Paid: $${totalPaid}`);
   console.log(`Change: $${change}`);
+  console.log("\n");
+  console.log("\n");
+  console.log("Thank you for shopping. :)");
+
+
+  userCart = {}
 
 }
 
 
-console.log("Test Login Functions")
+console.log("\n\nTest Login Functions")
 addToCartItem()
 
 userLoginStore("Ericsson", "Tee");
@@ -203,8 +241,12 @@ console.log("Test Login Functions Complete \n\n")
 console.log("Test Add To Cart Functions")
 
 addToCartItem(2, 201);
+addToCartItem(1, 2019);
+
+console.log(userCart);
 
 addToCartItem(2, 199);
+console.log(userCart);
 
 console.log("Test Add To Cart Functions Complete \n\n")
 
@@ -214,19 +256,32 @@ addOrUpdateItem("Red Jeans", "Trousers", null, null);
 
 addOrUpdateItem("White Jeans", "Trousers", 60, 450);
 
-//addOrUpdateItem("Apple Macbook", "Computer", 1250, 10)
+addOrUpdateItem("Apple Computer", "Computer", 1000.50, 10);
 
-//addOrUpdateItem("Keyboard", "Keychron", 55, 10)
+console.log(items);
+
+addOrUpdateItem("Keyboard", "Keychron", 55, 10)
 
 console.log("Test Add item or Add Qty Functions Complete \n\n")
 
-console.log("Test Purchase Functions")
+console.log("Test Purchase Functions\n")
 
-addToCartItem(1, 1);
+addToCartItem(2, 1);
 
-addToCartItem(3, 2);
+addToCartItem(1, 2);
 
-confirmOrder('Yes', 100);
+addToCartItem(4, 3);
 
-console.log("Test Purchase Functions Complete")
+addToCartItem(5, 1);
+
+confirmOrder('Yes', 14000);
+
+console.log("Test Purchase Functions Complete\n\n")
+
+console.log("Test Item values and Cart Object after Purchase\n")
+
+console.log(items);
+console.log(userCart);
+
+console.log("Test Items and Cart after Purchase Complete")
 
