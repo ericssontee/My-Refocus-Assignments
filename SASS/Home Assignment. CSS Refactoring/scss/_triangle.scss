@@ -1,0 +1,33 @@
+@use "colors";
+
+@mixin triangle-hori-dir-property($direction, $color) {
+  width: 0;
+  height: 0;
+  border-top: 100px solid transparent;
+  border-bottom: 100px solid transparent;
+  border-#{$direction}: 100px solid $color;
+}
+
+@mixin triangle-vert-dir-property($direction, $color) {
+  width: 0;
+  height: 0;
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+  border-#{$direction}: 100px solid $color;
+}
+
+.triangle-left {
+  @include triangle-hori-dir-property( $direction: "right", $color: colors.$c-blue );
+}
+
+.triangle-up {
+  @include triangle-vert-dir-property( $direction: "bottom", $color: colors.$c-orange );
+}
+
+.triangle-down {
+  @include triangle-vert-dir-property( $direction: "top", $color: colors.$c-red );
+}
+
+.triangle-right {
+  @include triangle-hori-dir-property( $direction: "left", $color: colors.$c-green );
+}

@@ -1,0 +1,13 @@
+$radius-size: 50%;
+
+.ellipse-horizontal {
+  width: 180px;
+  height: 90px;
+  border-radius: $radius-size;
+}
+
+.ellipse-vertical {
+  width: 90px;
+  height: 180px;
+  border-radius: $radius-size;
+}

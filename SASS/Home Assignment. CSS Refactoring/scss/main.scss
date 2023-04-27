@@ -1,0 +1,21 @@
+@use 'colors';
+@use 'triangle';
+@use 'ellipse';
+@use 'rectangle';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-rows: repeat(3, 1fr);
+  gap: 50px;
+  place-items: center;
+}
+
+
